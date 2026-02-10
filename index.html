@@ -6,65 +6,325 @@
 	<body>
 		<p>
 			<!DOCTYPE html>
-			<html>
+			<html lang="en">
 				<head>
 					<meta charset="UTF-8">
-						<title>Our Beautiful Days ❤️</title>
-						<meta name="viewport" content="width=device-width, initial-scale=1">
+						<meta name="viewport" content="width=device-width, initial-scale=1.0">
+							<title>Beautiful Days 💓</title>
 							<style> 
-body { 
-  margin: 0; 
-  font-family: Arial, sans-serif; 
-  background: #ff758c; 
-  color: white; 
-  text-align: center; 
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@300;400&display=swap'); 
+ 
+body{ 
+    margin:0; 
+    font-family:'Poppins',sans-serif; 
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb); 
+    min-height:100vh; 
+    overflow-x:hidden; 
 } 
-section { 
-  min-height: 100vh; 
-  padding: 20px; 
+ 
+/* Floating background emojis */ 
+.bg-emoji{ 
+    position:fixed; 
+    font-size:20px; 
+    opacity:0.5; 
+    animation:floatBg 14s linear infinite; 
 } 
-img { 
-  width: 90%; 
-  max-width: 400px; 
-  border-radius: 15px; 
+@keyframes floatBg{ 
+    from{transform:translateY(110vh);} 
+    to{transform:translateY(-120vh);} 
+} 
+ 
+.container{ 
+    padding:20px; 
+    text-align:center; 
+    position:relative; 
+    z-index:2; 
+} 
+ 
+/* Title */ 
+.title{ 
+    font-family:'Dancing Script',cursive; 
+    font-size:46px; 
+    color:white; 
+    text-shadow:0 4px 12px rgba(0,0,0,0.25); 
+    animation:floatTitle 4s ease-in-out infinite; 
+} 
+@keyframes floatTitle{ 
+    0%{transform:translateY(0);} 
+    50%{transform:translateY(-6px);} 
+    100%{transform:translateY(0);} 
+} 
+ 
+.subtitle{ 
+    color:white; 
+    opacity:0.95; 
+    margin-bottom:25px; 
+} 
+ 
+/* Date buttons */ 
+.date-bar{ 
+    display:flex; 
+    flex-wrap:wrap; 
+    justify-content:center; 
+    gap:10px; 
+    margin-bottom:30px; 
+} 
+.date-btn{ 
+    background:rgba(255,255,255,0.85); 
+    border:none; 
+    border-radius:22px; 
+    padding:10px 16px; 
+    font-size:14px; 
+    cursor:pointer; 
+    transition:transform .2s; 
+} 
+.date-btn:hover{ transform:scale(1.1); } 
+ 
+.locked{ 
+    opacity:0.6; 
+    cursor:not-allowed; 
+} 
+ 
+/* Memory card */ 
+.memory-card{ 
+    background:white; 
+    border-radius:22px; 
+    padding:22px; 
+    max-width:560px; 
+    margin:auto; 
+    animation:fadeIn .6s ease; 
+} 
+.memory-card img{ 
+    width:100%; 
+    border-radius:16px; 
+    margin-bottom:12px; 
+} 
+.memory-card h2{ 
+    font-family:'Dancing Script',cursive; 
+    color:#ff6f91; 
+    font-size:30px; 
+} 
+.memory-card p{ 
+    color:#444; 
+    white-space:pre-line; 
+} 
+ 
+@keyframes fadeIn{ 
+    from{opacity:0;transform:scale(.95);} 
+    to{opacity:1;transform:scale(1);} 
+} 
+ 
+/* Emoji rain */ 
+.rain{ 
+    position:fixed; 
+    top:-20px; 
+    font-size:26px; 
+    animation:rainFall 2.6s linear forwards; 
+    z-index:999; 
+} 
+@keyframes rainFall{ 
+    to{transform:translateY(120vh);opacity:0;} 
+} 
+ 
+/* Blooming rose (3D continuous) */ 
+.bloom{ 
+    display:inline-block; 
+    font-size:30px; 
+    animation:bloom 2.2s ease-in-out infinite; 
+} 
+@keyframes bloom{ 
+    0%{transform:scale(.9) rotateY(0deg);} 
+    50%{transform:scale(1.4) rotateY(25deg);} 
+    100%{transform:scale(.9) rotateY(0deg);} 
 } 
 </style>
 						</head>
 						<body>
-							<section>
-								<h2>🌹 Rose Day</h2>
-								<img src="rose.jpg">
-								</section>
-								<section>
-									<h2>🧸 Teddy Day</h2>
-									<img src="teddy.jpg">
-									</section>
-									<section>
-										<h2>💍 Propose Day</h2>
-										<img src="propose.jpg">
-										</section>
-										<section>
-											<h2>🍫 Chocolate Day</h2>
-											<img src="chocolate.jpg">
-											</section>
-											<section>
-												<h2>🤝 Promise Day</h2>
-												<img src="promise.jpg">
-												</section>
-												<section>
-													<h2>🤗 Hug Day</h2>
-													<img src="hug.jpg">
-													</section>
-													<section>
-														<h2>😘 Kiss Day</h2>
-														<img src="kiss.jpg">
-														</section>
-														<section>
-															<h2>❤️ Valentine’s Day</h2>
-															<img src="valentines.jpg">
-															</section>
-														</body>
-													</html>
-												</p>
+							<script> 
+/* Floating background emojis */ 
+const bgEmojis=["💓","✨","❤️","🧿","♾️"]; 
+for(let i=0;i
+								<30;i++){ 
+    const e=document.createElement("div"); 
+    e.className="bg-emoji"; 
+    e.innerText=bgEmojis[Math.floor(Math.random()*bgEmojis.length)]; 
+    e.style.left=Math.random()*100+"vw"; 
+    e.style.animationDuration=(10+Math.random()*10)+"s"; 
+    document.body.appendChild(e); 
+} 
+ 
+/* Auto refresh at midnight */ 
+(function(){ 
+    const now=new Date(); 
+    const midnight=new Date(now.getFullYear(),now.getMonth(),now.getDate()+1,0,0,0); 
+    setTimeout(()=>location.reload(),midnight-now); 
+})(); 
+
+								</script>
+								<div class="container">
+									<h1 class="title">Beautiful Days 💓</h1>
+									<p class="subtitle"> 
+        Presenting you the most beautiful couple of the century 🧿.
+										<br> 
+        ♾️❤️♾️ 
+    
+										</p>
+										<div class="date-bar" id="dateBar"></div>
+										<div id="memoryArea">
+											<p style="color:white;opacity:.9;">Each day unlocks at midnight 💖</p>
+										</div>
+									</div>
+									<script> 
+const today=new Date(); 
+const year=today.getFullYear(); 
+const todayDate=new Date(year,today.getMonth(),today.getDate()).getTime(); 
+ 
+const days=[ 
+ {label:"Feb 7 – Rose Day 🌹",emoji:"🌹",unlock:7}, 
+ {label:"Feb 8 – Propose Day 💍",emoji:"💍",unlock:8}, 
+ {label:"Feb 9 – Chocolate Day 🍫",emoji:"🍫",unlock:9}, 
+ {label:"Feb 10 – Teddy Day 🧸",emoji:"🧸",unlock:10}, 
+ {label:"Feb 11 – Promise Day 🤍",emoji:"🤍",unlock:11}, 
+ {label:"Feb 12 – Hug Day 🤗",emoji:"🤗",unlock:12}, 
+ {label:"Feb 13 – Kiss Day 😘",emoji:"😘",unlock:13}, 
+ {label:"Feb 14 – Valentine’s Day ❤️",emoji:"❤️",unlock:14} 
+]; 
+ 
+const memories=[ 
+{ 
+title:"Rose Day 🌹", 
+text:`Oka chinna rose… chala pedda feeling 🌹 
+Ee rose laage nuvvu kuda special 
+ 
+stay blooming 
+										<span class="bloom">🌹</span>`, 
+img:"rose.jpg" 
+}, 
+{ 
+title:"Propose Day 💍", 
+text:`Oka roju kaadu, 
+prathi roju nee tho undaalani undi 
+Forever ♾️ starts with you 🫴🏼💕`, 
+img:"propose.jpg" 
+}, 
+{ 
+title:"Chocolate Day 🍫", 
+text:`Ee chocolate kanna sweet nee smile ☺️ 
+assalu ne matalu chocolate kanna sweet 
+heart ❤️ melt avvalsindey`, 
+img:"chocolate.jpg" 
+}, 
+{ 
+title:"Teddy Day 🧸", 
+text:`Ee teddy ni choosina prathi sari, 
+nuvvu gurthostav… 
+endukante nuvu na cute teddy 🧸 bear vi`, 
+img:"teddy.jpg" 
+}, 
+{ 
+title:"Promise Day 🤍", 
+text:`Adigav kadha temple lo 
+manam happy ga vundali ani mukkunav aa 
+leka kalisi vundali ani mukkunav aa ani… 
+ 
+nuvu happy ga vundali ani mukkuna 🫂`, 
+img:"promise.jpg" 
+}, 
+{ 
+title:"Hug Day 🤗", 
+text:`my favourite… 
+ninnu hug chesukoni 
+ne pakka na bajuntey vuntadi 😍 
+ 
+can't explain in words 
+just need to feel that`, 
+img:"hug.jpg" 
+}, 
+{ 
+title:"Kiss Day 😘", 
+text:`A day starts with… 
+chinna forehead kiss 😘 
+Koni sarlu nuvu adigi mari 
+forehead kiss petinchukuntav 
+chala memories unnayi`, 
+img:"kiss.jpg" 
+}, 
+{ 
+title:"Valentine’s Day ❤️", 
+text:`Manam kalisi gadipina moments, 
+aa best Valentine gift 
+aa chinna chinna memories… 
+anni ippudu naa heart lo safe ga unnayi. 
+ 
+Nee forehead meeda ichina aa oka kiss, 
+romance kaadu… 
+adi care, respect, 
+oka silent promise. 
+ 
+Manam ippudu kalisi lekapoyina, 
+aa memories ni, 
+aa feeling ni 
+nenu eppatiki marchipolenu 
+ 
+Because once, 
+we were real. 
+ 
+I love you ❤️ 
+Happy Valentine’s Day 🤍`, 
+img:"valentine.jpg" 
+} 
+]; 
+ 
+const bar=document.getElementById("dateBar"); 
+ 
+days.forEach((d,i)=>{ 
+    const unlockDate=new Date(year,1,d.unlock).getTime(); 
+    const btn=document.createElement("button"); 
+    btn.className="date-btn"; 
+    btn.innerText=d.label; 
+ 
+    if(todayDate
+										<unlockDate){ 
+        btn.classList.add("locked"); 
+        btn.onclick=()=>showLocked(d.unlock); 
+    }else{ 
+        btn.onclick=()=>showMemory(i,d.emoji); 
+    } 
+    bar.appendChild(btn); 
+}); 
+ 
+function showLocked(day){ 
+    document.getElementById("memoryArea").innerHTML=` 
+        
+											<div class="memory-card">
+												<h2>🔒 Locked</h2>
+												<p>This memory unlocks on Feb ${day} 💖</p>
+											</div>`; 
+} 
+ 
+function showMemory(i,emoji){ 
+    const m=memories[i]; 
+    document.getElementById("memoryArea").innerHTML=` 
+        
+											<div class="memory-card">
+												<img src="${m.img}">
+													<h2>${m.title}</h2>
+													<p>${m.text}</p>
+												</div>`; 
+    for(let j=0;j
+												<40;j++){ 
+        const r=document.createElement("div"); 
+        r.className="rain"; 
+        r.innerText=emoji; 
+        r.style.left=Math.random()*100+"vw"; 
+        document.body.appendChild(r); 
+        setTimeout(()=>r.remove(),3000); 
+    } 
+} 
+
+												</script>
 											</body>
 										</html>
+									</p>
+								</body>
+							</html>
